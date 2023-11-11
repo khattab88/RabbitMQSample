@@ -19,12 +19,14 @@ namespace Producer.API.Services
             var connection = connectionfactory.CreateConnection();
             var channel = connection.CreateModel();
 
-            channel.QueueDeclare("bookings", durable: true, exclusive: true);
+            string queue = "bookings";
+            string routingKey = "bookings";
+            channel.QueueDeclare(queue, durable: true, exclusive: false);
 
             var jsonString = JsonSerializer.Serialize(message);
             var body = Encoding.UTF8.GetBytes(jsonString);
 
-            channel.BasicPublish("", "bookings", body: body);
+            channel.BasicPublish("", routingKey, body: body);
         }
     }
 }
