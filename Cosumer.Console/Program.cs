@@ -1,5 +1,6 @@
 ﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
+using RabbitMQSample.Models;
 using System;
 using System.Text;
 using System.Text.Json;
@@ -29,9 +30,9 @@ consumer.Received += (model, eventArgs) =>
 
     string bodyString = Encoding.UTF8.GetString(body);
 
-    // var message = JsonSerializer.Deserialize<Book>
+    var message = JsonSerializer.Deserialize<Booking>(bodyString);
 
-    Console.WriteLine($"Message received: {bodyString}");
+    Console.WriteLine($"Message received: {message?.ToString()}");
 };
 
 

@@ -1,4 +1,4 @@
-﻿namespace Producer.API.Models
+﻿namespace RabbitMQSample.Models
 {
     public class Booking
     {
@@ -8,5 +8,10 @@
         public string From { get; set; } = "";
         public string To { get; set; } = "";
         public int Status { get; set; }
+
+        public override string ToString()
+        {
+            return $"Passenger Name: {this.PassengerName}, From: {this.From}, To: {this.To}";
+        }
     }
 }

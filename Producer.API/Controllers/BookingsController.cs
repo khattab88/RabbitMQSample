@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Producer.API.Models;
 using Producer.API.Services;
+using RabbitMQSample.Models;
 
 namespace Producer.API.Controllers
 {
